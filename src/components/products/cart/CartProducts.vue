@@ -85,7 +85,7 @@ export default {
     removeProductCart(product) {
       const products = JSON.parse(localStorage.getItem("iki-cart"));
       for (let i = 0; i < products.length; i++) {
-        if (products[i]._id === product._id) {
+        if (products[i].id === product.id) {
           products.splice(i, 1);
         }
       }

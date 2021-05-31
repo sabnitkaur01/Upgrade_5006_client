@@ -34,6 +34,24 @@ export default new Router({
         name: 'checkout',
         component: () => import('./components/products/cart/Checkout.vue'),
         
+    },
+    {
+        path: '/handtools',
+        name: 'handtools',
+        component: () => import('./components/products/Handtools'),
+        
+    },
+    {
+        path: '/outdoor',
+        name: 'outdoor',
+        component: () => import('./components/products/Outdoor'),
+        
+    },
+    {
+        path: '/gear',
+        name: 'gear',
+        component: () => import('./components/products/GearsRepairs'),
+        
     }
     
     ]

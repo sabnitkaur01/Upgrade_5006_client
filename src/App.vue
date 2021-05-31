@@ -25,13 +25,19 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#handTools">Hand Tools</a>
+              <router-link to="/handtools" class="nav-link"
+                >Handtools</router-link
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#outdoor">Outdoor</a>
+              <router-link to="/outdoor" class="nav-link"
+                >Outdoor</router-link
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#gearRepairs">Gear & Storage</a>
+              <router-link to="/gear" class="nav-link"
+                >Gear & Storage</router-link
+              >
             </li>            
           </ul>
           <ul class="navbar-nav ml-auto">
