@@ -4,13 +4,8 @@
       <h4 class="d-flex mb-3">
         <span class="text-muted">Filters:</span>
       </h4>
-      <div
-        class="form-group createProduct"
-        v-if="loggedUser && loggedUser.isAdmin"
-      >
-        <button class="btn buttonGreen-outline" @click="openCreateModal">
-          Create New Product
-        </button>
+      
+        
       </div>
       <div class="form-group">
         <label for="filterPrdCty">By Category:</label>
@@ -27,38 +22,28 @@
             >{{ category.productCategory }}</option
           >
         </select>
-      </div>
-      
-    </div>
-    <create-product ref="createProduct" />
-  </div>
+      </div>      
+    </div> 
+  
 </template>
 
 <script>
-import CreateProduct from "../actions/CreateProduct";
-import { mapState } from "vuex";
+
+
 export default {
   name: "productFilter",
-  props: ["categories", "sellers"],
-  components: { CreateProduct },
-  computed: mapState(["loggedUser"]),
+  props: ["categories"], 
+  
   data() {
     return {
-      selectedCategory: "All",
-      selectedSeller: "All",
-      showCreateProductModal: false,
+      selectedCategory: "Handtool",      
     };
   },
   methods: {
-    // This method will trigger the parent Components (Prodcuts Component) function
+    
     updateProductCategory(event, productFilterID) {
       this.$parent.filterProductBy(event, productFilterID);
-    },
-
-    // This method will trigger the function in createProduct Component
-    openCreateModal() {
-      this.$refs.createProduct.showModalForm();
-    },
+    },    
   },
 };
 </script>

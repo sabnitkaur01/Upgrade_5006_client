@@ -35,7 +35,7 @@ export default {
     getAllProducts: function() {
       this.loading = true;
       axios
-        .get(`http://localhost:3000/products`)
+        .get(`http://localhost:3000/products`) 
         .then((response) => {
           this.loading = false;
           this.products_list = response.data.data;

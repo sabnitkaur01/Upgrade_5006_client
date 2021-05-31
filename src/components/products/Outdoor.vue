@@ -6,7 +6,7 @@
         <card-template :item="item"/>
       </div>
     </div>
-    <edit-product ref="editProduct"/>
+    
   </div>
 </template>
 
@@ -15,10 +15,10 @@ import axios from "axios";
 import { errorToaster } from "../shared/service/ErrorHandler";
 import CardLoader from "../shared/CardLoader";
 import CardTemplate from "../shared/CardTemplate";
-import EditProduct from "./actions/EditProduct";
+
 export default {
   name: "Outdoor",
-  components: { CardLoader, CardTemplate, EditProduct },
+  components: { CardLoader, CardTemplate },
   data() {
     return {
       Outdoor: [],
@@ -26,15 +26,12 @@ export default {
     };
   },
   methods: {
-    //manadatory function called from cardTemplate
-    editProduct(product) {
-      this.$refs.editProduct.setProduct(product);
-    },
+    
 
     getOutdoor() {
       this.loading = true;
       axios
-        .get(`${process.env.VUE_APP_BASE_URL}/outdoor`)
+        .get(`http://localhost:3000/outdoor`)
         .then(response => {
           this.loading = false;
           this.Outdoor = response.data.data;

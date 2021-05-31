@@ -6,7 +6,7 @@
         <card-template :item="item"/>
       </div>
     </div>
-    <edit-product ref="editProduct"/>
+    
   </div>
 </template>
 
@@ -15,10 +15,10 @@ import axios from "axios";
 import { errorToaster } from "../shared/service/ErrorHandler";
 import CardLoader from "../shared/CardLoader";
 import CardTemplate from "../shared/CardTemplate";
-import EditProduct from "./actions/EditProduct";
+
 export default {
   name: "GearRepair",
-  components: { CardLoader, CardTemplate, EditProduct },
+  components: { CardLoader, CardTemplate },
   data() {
     return {
       GearRepair: [],
@@ -26,15 +26,12 @@ export default {
     };
   },
   methods: {
-    //manadatory function called from cardTemplate
-    editProduct(product) {
-      this.$refs.editProduct.setProduct(product);
-    },
+    
 
     getGearRepair() {
       this.loading = true;
       axios
-        .get(`${process.env.VUE_APP_BASE_URL}/gear`)
+        .get(`http://localhost:3000/gear`)
         .then(response => {
           this.loading = false;
           this.GearRepair = response.data.data;

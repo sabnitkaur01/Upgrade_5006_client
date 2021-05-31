@@ -29,7 +29,7 @@ export default {
     getHandtools() {
       this.loading = true;
       axios
-        .get(`${process.env.VUE_APP_BASE_URL}/handtools`)
+        .get(`http://localhost:3000/handtools`)
         .then(response => {
           this.loading = false;
           this.Handtools = response.data.data;

@@ -5,8 +5,7 @@
       <div class="col-md-3" v-for="(item, index) in allProducts" :key="index">
         <card-template :item="item"/>
       </div>
-    </div>
-    <edit-product ref="editProduct"/> 
+    </div>     
   </div>
 </template>
 
@@ -15,10 +14,10 @@ import axios from "axios";
 import { errorToaster } from "../shared/service/ErrorHandler";
 import CardLoader from "../shared/CardLoader";
 import CardTemplate from "../shared/CardTemplate";
-import EditProduct from "./actions/EditProduct";
+
 export default {
   name: "AllProducts",
-  components: { CardLoader, CardTemplate, EditProduct },
+  components: { CardLoader, CardTemplate},
   data() {
     return {
       allProducts: [],
@@ -26,19 +25,14 @@ export default {
     };
   },
   methods: {
-    //manadatory function called from cardTemplate
-    editProduct(product) {
-      this.$refs.editProduct.setProduct(product);
-    },
-
     getallProducts() {
       this.loading = true;
       axios
-        .get(`http://127.0.0.1:3000/products`)
+        .get(`http://localhost:3000/products`)
         .then(response => {
           this.loading = false;
           this.allProducts = response.data.data;
-          console.log(this.allProducts);
+          console.log(this.allProducts); 
         })
         .catch(error => {
           console.log(error);

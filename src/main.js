@@ -5,7 +5,8 @@ import store from "./store";
 import "./registerServiceWorker";
 import VueAwesomeSwiper from "vue-awesome-swiper";
 import NProgress from "nprogress";
-import VueYouTubeEmbed from 'vue-youtube-embed'
+import VueYouTubeEmbed from 'vue-youtube-embed';
+import Embed from 'v-video-embed';
 
 
 // require styles
@@ -13,7 +14,8 @@ import "swiper/swiper.min.css";
 import "../node_modules/nprogress/nprogress.css";
 
 Vue.use(VueAwesomeSwiper);
-Vue.use(VueYouTubeEmbed)
+Vue.use(VueYouTubeEmbed);
+Vue.use(Embed);
 
 Vue.config.productionTip = false;
 
