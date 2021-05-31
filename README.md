@@ -15,19 +15,21 @@
 
 ## Softwares:
 * Github
+* MySql
+* Terminal
+* Visual Studio Code
+* Bootstrap
+
+## Languages:
 * HTML5
 * Node
 * Express
 * Vue
 * AJAX
-* MySql
-* Terminal
-* Visual Studio Code
-* SASS
-* Bootstrap
+
 
 ## Result:
-* Run (npm install) in both terminals
+* To start Run (npm install) on both sides
 * On front-end run (npm run serve)
 * On back-end run (index.js)
 
