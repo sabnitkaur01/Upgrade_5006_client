@@ -2,7 +2,7 @@
   <div id="app" class="container-fluid">
     <main>
       <nav class="navbar navbar-expand-lg navbar-light" id="nav">
-        <img alt="Vue logo" src="./assets/logo.png" width="50px" />
+        <img alt="logo" src="./assets/logo.png" width="50px" />
         <button
           class="navbar-toggler"
           type="button"
@@ -54,21 +54,17 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
-import {
-  isLoggedIn,
-  getLoggedInUser,
-} from "./components/shared/service/authService";
+
 export default {
   data() {
     return {
       cartValue: 0,
     };
   },
-  computed: mapState(["cartProducts", "loggedUser"]),
+  computed: mapState(["cartProducts"]),
   methods: {
-    /* Initially loading the cart products from local storage */
-
-    ...mapMutations(["SET_CART_PRODUCTS", "ADD_LOGGED_USER"]),
+    //load cart items from local storage
+    ...mapMutations(["SET_CART_PRODUCTS"]),
 
     getLocalProducts() {
       const products = JSON.parse(localStorage.getItem("iki-cart"));
@@ -78,25 +74,10 @@ export default {
       }
     },
 
-    isLogged() {
-      return isLoggedIn();
-    },
-
-    loc_logout() {
-      localStorage.removeItem("_auth");
-      this.$router.push("/");
-      location.reload();
-    },
+        
   },
   created() {
-    this.getLocalProducts();
-
-    const loggedUser = getLoggedInUser();
-
-    this.ADD_LOGGED_USER(loggedUser);
-
-    console.log(process.env.NODE_ENV);
-    console.log(process.env.VUE_APP_BASE_URL);
+    this.getLocalProducts();   
   },
 };
 </script>
@@ -110,7 +91,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #000;
 }
 #nav {
   padding: 15px;
@@ -124,33 +105,6 @@ html {
   position: relative;
   min-height: 100%;
 }
-body {
-  margin-bottom: 60px; /* Margin bottom by footer height */
-}
-.footer {
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  height: 60px; /* Set the fixed height of the footer here */
-  background-color: #f5f5f5;
-}
-
-footer {
-  background-color: #f2f2f2;
-  padding: 25px;
-}
-
-.footer p,
-.footer div {
-  display: inline;
-  vertical-align: top;
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  line-height: 28px;
-}
-.footer p {
-  font-weight: bold;
-}
 
 * a {
   color: #42b983;
@@ -158,26 +112,5 @@ footer {
 
 * .fa {
   font-size: 18px;
-}
-
-.buttonGreen-outline {
-  width: 100%;
-  color: #41b883;
-  background-color: transparent;
-  border-color: #41b883;
-}
-.buttonGreen-outline:hover {
-  color: #ffffff;
-  background-color: #41b883;
-  border-color: #41b883;
-}
-
-.buttonGreen {
-  color: #fff;
-  background-color: #41b883;
-}
-
-.buttonGreen:hover {
-  background-color: #42a97b;
 }
 </style>

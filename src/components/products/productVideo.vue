@@ -1,24 +1,18 @@
-<template>
-    <youtube v-bind:video-id="productVideo"></youtube>
+<template>    
+    <video-embed v-bind:src="productVideoSrc"></video-embed>
 </template>
 <script>
 export default {
-    name: "productVideo",
-    data() {
+    name: "productVideo",    
+  data() {
     return {
-      productVideo: this.$route.params.productVideo,
+      productVideoSrc: ""
     };
   },
-  computed: {
-    // productVideo() {      
-      
-    //   return this.$route.params.productVideo
-    // }
-  },
-  methods: {
-    goBack() {
-      window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/')
-    }
-  }
+  created() {
+            this.productVideoSrc = this.$route.params.productVideo;
+            console.log(this.productVideoSrc);
+        },
+    
 }
 </script>

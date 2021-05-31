@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
+import {  mapMutations } from "vuex";
 import { infoToaster, successToaster } from "./service/ErrorHandler";
 
 import _ from "lodash";
@@ -46,7 +46,7 @@ export default {
     };
   },
   components: {},
-  computed: mapState(["loggedUser"]),
+  
   methods: {
     playYoutubeVideo(product) {
       console.log(product);

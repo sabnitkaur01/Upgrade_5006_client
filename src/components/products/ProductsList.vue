@@ -5,18 +5,18 @@
         <card-template :item="item" />
       </div>
     </div>
-    <edit-product ref="editProduct" />
+    
   </div>
 </template>
 
 
 <script>
 import CardTemplate from "../shared/CardTemplate";
-import EditProduct from "./actions/EditProduct";
+
 export default {
   name: "productslist",
   props: ["products_list"],
-  components: { CardTemplate, EditProduct },
+  components: { CardTemplate },
   data() {
     return {
       selectedProduct: Object,
@@ -24,10 +24,7 @@ export default {
   },
   methods: {
     
-    editProduct(product) {
-      
-      this.$refs.editProduct.setProduct(product);
-    },
+    
   },
   mounted() {},
 };

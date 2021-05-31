@@ -24,9 +24,7 @@
           <slot></slot>
           <br />
         </div>
-        <!-- <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" @click="$emit('close')">Close</button>
-                    </div> -->
+        
       </div>
     </div>
   </div>
@@ -43,6 +41,6 @@ export default {
 <style lang="css">
 .showModal {
   display: block;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #000000;
 }
 </style>
